@@ -1,0 +1,103 @@
+
+<!doctype html>
+<meta name="viewport" content="width=device-width">
+<head>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+<style>
+
+
+body{
+
+background-size: cover;
+height: 2000px;
+}
+
+#pics1{
+width: 50%;
+height: 100%;
+top: 0;
+left: 0;
+position: fixed;
+z-index: -1;
+background: url(cric1.jpg) 5% 50% no-repeat;
+}
+
+#pics2{
+  width: 50%;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  position: fixed;
+  z-index: -1;
+  background: url(cric2.jpg) 5% 50% no-repeat;
+  }
+
+
+
+#pics4{
+    width: 50%;
+    height: 50%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: -1;
+    background: url(cric3.jpg) 5% 50% no-repeat;
+    }
+
+  }
+
+}
+
+
+</style>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <section class="row">
+      <div class="col-md-6 img-responsive" id="pics1"></div>
+      <div class="col-md-6 img-responsive" id="pics2"></div>
+    </section>
+    <section class="row">
+      <div class="col-md-6 img-responsive" id="pics3"></div>
+      <div class="col-md-6 img-responsive" id="pics4"></div>
+      </div>
+</section>
+
+<script>
+
+// Create cross browser requestAnimationFrame method:
+window.requestAnimationFrame = window.requestAnimationFrame
+                               || window.mozRequestAnimationFrame
+                               || window.webkitRequestAnimationFrame
+                               || window.msRequestAnimationFrame
+                               || function(f){setTimeout(f, 1000/60)}
+
+var pic1 = document.getElementById('pics1')
+var pic2 = document.getElementById('pics2')
+var pic3 = document.getElementById('pics3')
+var pic4 = document.getElementById('pics4')
+
+function parallaxpics(){
+	var scrolltop = window.pageYOffset
+	pic1.style.top = -scrolltop * .2 + 'px'
+	pic2.style.top = -scrolltop * .5 + 'px'
+
+  pic4.style.top = -scrolltop * .2 + 'px'
+}
+
+window.addEventListener('scroll', function(){
+	requestAnimationFrame(parallaxpics)
+}, false)
+
+</script>
+
+</body>
+
+</html>
